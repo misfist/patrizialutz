@@ -1,0 +1,80 @@
+.jumbotron {
+	background-size: 100%;
+	background-size: cover;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/background.jpg', sizingMethod='scale');
+	margin-bottom: 0;
+	padding: 0;
+	background: no-repeat center right fixed $url_1;
+	height: 800px;
+
+	.overlay {
+		height: 800px;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		opacity: 0.75;
+		filter: alpha(opacity=75);
+		z-index: 2;
+		background-color: $primary-color;
+	}
+	.container {
+		position: relative;
+		top: 28%;
+		z-index: 4;
+		text-align: center;
+		> * {
+			text-align: center;
+			color: $white;
+		}
+		h1 {
+			padding-bottom: 1.25rem;
+			border-bottom: 1px solid $white;
+			border-bottom-color: $white_35;
+			display: inline-block;
+		}
+		.lead {
+			font-size: 1.75rem;
+		}
+	}
+	.scroll-down {
+		height: 80px;
+		width: 110px;
+		display: block;
+		position: absolute;
+		bottom: 0;
+		right: 5%;
+		background-color: $gray-900;
+		text-align: center;
+		z-index: 6;
+		.glyphicon {
+			color: $white;
+			font-size: 1.875rem;
+			padding-right: 2px;
+			padding-top: 1.25rem;
+			animation-name: wiggle;
+			animation-duration: 1.2s;
+			animation-timing-function: linear;
+			animation-iteration-count: infinite;
+			animation-direction: normal;
+		}
+		&:hover .glyphicon {
+			padding-top: 25px;
+		}
+	}
+}
+
+@media only screen and(orientation: portrait) and(max-width: 767px) {
+	.jumbotron {
+		background-attachment: scroll;
+	}
+}
+@media only screen and(orientation: landscape) and(max-width: 767px) {
+	.jumbotron {
+		background-attachment: scroll;
+		.lead {
+			display: none;
+		}
+	}
+}

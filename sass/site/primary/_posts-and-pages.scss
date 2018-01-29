@@ -1,0 +1,41 @@
+.sticky {
+	display: block;
+}
+
+.hentry {
+	margin: 0;
+}
+
+.updated:not(.published) {
+	display: none;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	margin: 1.5em 0 0;
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}
+
+.section {
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+
+#expertise {
+	background-color: $white;
+}
+
+#contact {
+	background-color: $primary-color;
+	color: $white;
+
+	h2,
+	h3 {
+		color: $white;
+	}
+}
