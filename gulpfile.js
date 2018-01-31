@@ -1,37 +1,104 @@
-// If you're interested in automating more control, check out gulpjs.com for more dependencies
-// This is meant as a starting point. You can do a LOT more with gulpjs than this
+// browser-sync watched files
+// automatically reloads the page when files changed
+var browserSyncWatchFiles = [
+    './css/*.min.css',
+    './js/*.min.js',
+    './*.php'
+];
+// browser-sync options
+// see: https://www.browsersync.io/docs/options/
+var browserSyncOptions = {
+    proxy: "patrizialutz.text",
+    notify: false
+};
 
-// Requiring dependencies here, make sure to add them via the terminal
-var gulp   = require('gulp'),
-    sass   = require('gulp-sass'),
+var gulp = require('gulp'),
+    autoprefixer = require('autoprefixer'),
+    plumber = require( 'gulp-plumber' ),
+    watch = require( 'gulp-watch' ),
+    livereload = require( 'gulp-livereload' ),
+    minifycss = require( 'gulp-cssnano' ),
+    uglify = require( 'gulp-uglify' ),
+    rename = require( 'gulp-rename' ),
+    notify = require( 'gulp-notify' ),
+    include = require( 'gulp-include' ),
+    sass = require( 'gulp-sass' ),
     concat = require('gulp-concat'),
-    minify = require('gulp-minify');
+    postcss = require('gulp-postcss'),
+    mqpacker = require('css-mqpacker'),
+    imagemin = require('gulp-imagemin'),
+    sprity = require('sprity'),
+    gulpif = require('gulp-if'),
+    sourcemaps = require('gulp-sourcemaps'),
+    browserSync = require('browser-sync').create(),
+    wpPot = require('gulp-wp-pot');
 
-// Need to create a /css folder and a /sass folder inside the /css folder
-gulp.task('styles', function() {
-  return gulp.src('./sass/*.scss')
-    .pipe(sass().on('error', sass.logError))
-    .pipe(concat('main.css'))
-    .pipe(gulp.dest('css/'));
+var onError = function( err ) {
+    console.log( 'An error occurred:', err.message );
+    this.emit( 'end' );
+};
+
+var paths = {
+    /* Source paths */
+    styles: './sass/**/*.scss',
+    scripts: './js/',
+    images: './images/**/*',
+
+    /* Output paths */
+    stylesOutput: './css/',
+    scriptsOutput: './js/',
+    imagesOutput: './images/',
+};
+
+gulp.task( 'styles', function() {
+    return gulp.src( paths.styles, {
+        style: 'expanded'
+    } )
+    .pipe( plumber( { errorHandler: onError } ) )
+    .pipe( sass() )
+    .pipe(postcss([
+        autoprefixer({
+            browsers: ['last 2 version']
+        }),
+        mqpacker({
+            sort: true
+        }),
+    ]))
+    .pipe( rename( 'main.css' ) )
+    .pipe( gulp.dest( paths.stylesOutput ) )
+    .pipe( minifycss() )
+    .pipe(sourcemaps.write())
+    .pipe( rename( { suffix: '.min' } ) )
+    .pipe( gulp.dest( paths.stylesOutput ) );
 });
-// Obviously enqueue this new css file "main.css" in your functions.php
 
-gulp.task('scripts', function() {
-  gulp.src('./js/*.js')
-    .pipe(minify({
-    	ext: {
-    		src: 'main.js', // create main.js for all your extra theme JS
-    		min: '.min.js'
-    	}
+// .pipe( notify( { message: 'Styles task complete' } ) )
+
+gulp.task('scripts', function(){
+  return gulp.src(paths.scripts + '/main.js')
+      .pipe(uglify())
+      .pipe(sourcemaps.write())
+      .pipe( rename( { suffix: '.min' } ) )
+      .pipe( gulp.dest( paths.scripts + '/min/' ) )
+      .pipe( notify( { message: 'Script task complete' } ) );
+});
+
+gulp.task('images', function(){
+  return gulp.src(paths.images)
+    .pipe(imagemin({
+        optimizationLevel: 5,
+        progressive: true,
+        interlaced: true
     }))
-    .pipe(gulp.dest('js/min/'))
-	// enqueue this minified file in your functions.php file
+    .pipe(gulp.dest(paths.imagesOutput))
+    .pipe( notify( { message: 'Images task complete' } ) );
 });
 
-// Gulp is watching you and your coding with the command: gulp watch
-gulp.task('watch', function() {
-  gulp.watch('./sass/*.scss', ['styles']);
-  gulp.watch('./js/*.js', ['scripts']);
-});
+gulp.task( 'watch', function() {
+    livereload.listen();
+    gulp.watch( paths.styles, [ 'styles' ] );
+    gulp.watch( paths.scripts + '/*.js', [ 'scripts' ] );
+    gulp.watch( paths.images, [ 'images' ] );
+} );
 
-gulp.task('default', ['watch', 'styles']);
+gulp.task( 'default', [ 'watch', 'styles', 'scripts', 'images' ], function() {});

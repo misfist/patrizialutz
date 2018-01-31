@@ -21,12 +21,13 @@
 </head>
 
 <body <?php body_class(); ?>>
+
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'patrizialutz' ); ?></a>
 
 	<header id="masthead" class="site-header">
 
-			<div class="site-branding jumbotron">
+			<div class="site-branding jumbotron" style="background-image:url( '<?php echo get_random_header_image(); ?>' );">
 
 				<div class="container">
 
@@ -36,6 +37,9 @@
 					$description = get_bloginfo( 'description', 'display' );
 					if ( $description || is_customize_preview() ) : ?>
 						<p class="site-description lead"><?php echo $description; /* WPCS: xss ok. */ ?></p>
+
+						<?php patrizialutz_custom_menu();?>
+
 					<?php
 					endif; ?>
 
@@ -45,18 +49,16 @@
 
 			</div><!-- .site-branding -->
 
-			<nav id="site-navigation" class="main-navigation">
+			<nav id="site-navigation" class="main-navigation js-sticky-nav">
 
 				<div class="container">
 
-					<button class="menu-toggle" type="button" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle Menu">
-						<span class="navbar-toggler-icon"></span><span class="screen-reader-text"><?php esc_html_e( 'Menu', 'patrizialutz' ); ?></span>
-					</button>
 					<?php
 						wp_nav_menu( array(
 							'theme_location' => 'menu-1',
 							'menu_id'        => 'primary-menu',
-							'fallback'			 => false
+							'depth'					 => 1,
+							'fallback'			 => false,
 						) );
 					?>
 

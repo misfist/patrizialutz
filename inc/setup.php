@@ -46,6 +46,7 @@
  		// This theme uses wp_nav_menu() in one location.
  		register_nav_menus( array(
  			'menu-1' => esc_html__( 'Primary', 'patrizialutz' ),
+      'social-menu' => esc_html__( 'Social Menu', 'patrizialutz' ),
  		) );
 
  		/*
@@ -112,3 +113,10 @@
  	) );
  }
  add_action( 'widgets_init', 'patrizialutz_widgets_init' );
+
+ add_filter( 'meta_content', 'wptexturize'        );
+ add_filter( 'meta_content', 'convert_smilies'    );
+ add_filter( 'meta_content', 'convert_chars'      );
+ add_filter( 'meta_content', 'wpautop'            );
+ add_filter( 'meta_content', 'shortcode_unautop'  );
+ add_filter( 'meta_content', 'prepend_attachment' );

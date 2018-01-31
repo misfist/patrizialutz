@@ -17,6 +17,12 @@ hr {
 	border: 0;
 	height: 1px;
 	margin-bottom: 1.5em;
+	width: 90%;
+
+	@include media-breakpoint-up(sm) {
+		width: 60%;
+	}
+
 }
 
 .screen-reader-text {
@@ -36,6 +42,30 @@ figure {
 
 a {
 	color: $green;
+}
+
+.dot {
+	@include dot;
+	margin-right: .125rem;
+	margin-left: .125rem;
+
+	&.filled {
+		@include dot($primary-color, $primary-color);
+	}
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+	z-index: 200;
+}
+
+.sticky-bottom {
+	position: fixed;
+	bottom: 4rem;
+	right: 4rem;
+	z-index: 200;
 }
 
 @import "tables";

@@ -145,3 +145,34 @@ function patrizialutz_post_thumbnail() {
 	<?php endif; // End is_singular().
 }
 endif;
+
+/**
+ * Display a customized menu
+ *
+ * @param  string $menu
+ * @param  array  $args
+ * @return void
+ */
+function patrizialutz_custom_menu( $menu = 'social-menu', $args = array() ) {
+	$items = wp_get_nav_menu_items( $menu, $args );
+	if( !empty( $items ) && !is_wp_error( $items ) ) {
+
+		echo '<nav class="' . esc_attr( $menu ) . '">';
+		echo '<ul>';
+
+		foreach( $items as $item ) : ?>
+
+			<?php
+			$classes = ( !empty( $item->classes ) ) ? implode( ' ', $item->classes ) : null;
+			$target = ( !empty( $item->target ) ) ? 'target="_blank"' : '';
+			?>
+
+			<li id="<?php echo $item->post_name; ?>" <?php echo ( !empty( $classes ) ) ? 'class="' . $classes . '"' : ''; ?>><a href="<?php esc_html_e( $item->url ); ?>" <?php echo $target; ?>><span class="icon"></span><span class="screen-reader-text"><?php echo esc_attr( $item->title ); ?></span></a></li>
+
+		<?php
+		endforeach;
+
+		echo '</ul>';
+		echo '</nav>';
+	}
+}

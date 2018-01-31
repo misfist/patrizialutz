@@ -19,6 +19,28 @@ object {
 	display: block;
 }
 
+.avatar {
+	img {
+		border-radius: 50%;
+		background-color: $white;
+		height: 9rem;
+		width: 9rem;
+
+		@include media-breakpoint-up(sm) {
+			height: 10rem;
+			width: 10rem;
+		}
+		@include media-breakpoint-up(md) {
+			height: 11rem;
+			width: 11rem;
+		}
+		@include media-breakpoint-up(lg) {
+			height: 12rem;
+			width: 12rem;
+		}
+	}
+}
+
 /*--------------------------------------------------------------
 ## Captions
 --------------------------------------------------------------*/

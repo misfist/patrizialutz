@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying portfolio section
+ * Template part for displaying expertise section
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -10,6 +10,7 @@
 ?>
 
 <section id="<?php echo $post->post_name; ?>" <?php post_class('section'); ?>>
+
 	<div class="container">
 
 		<header class="entry-header">
@@ -49,31 +50,24 @@
 				'tax_query'			=>  array(
 					array(
 						'taxonomy'         => 'jetpack-portfolio-type',
-						'terms'            => 'project',
+						'terms'            => 'job',
 						'field'            => 'slug',
 						'operator'         => 'IN',
 					),
 				)
 			);
 
-			$projects = new WP_Query( $args );
-			$count = 0;
+			$jobs = new WP_Query( $args );
 			?>
 
-			<?php if( $projects->have_posts() ) : ?>
+			<?php if( $jobs->have_posts() ) : ?>
 
-				<div class="project-list">
+				<div class="jobs-list">
 
-					<?php while( $projects->have_posts() && $count < 8 ) : ?>
-						<?php $projects->the_post(); ?>
+					<?php while( $jobs->have_posts() ) : ?>
+						<?php $jobs->the_post(); ?>
 
-						<?php if( has_post_thumbnail() ) : ?>
-
-							<?php get_template_part( 'template-parts/content', 'project' ); ?>
-
-							<?php $count++; ?>
-
-						<?php endif; ?>
+							<?php get_template_part( 'template-parts/content', 'job' ); ?>
 
 					<?php endwhile; ?>
 
@@ -88,9 +82,5 @@
 		<footer class="entry-footer">
 			<?php patrizialutz_entry_footer(); ?>
 		</footer><!-- .entry-footer -->
-	</div>
-
-	<div class="section-divider">
-		<div class="inner"></div>
 	</div>
 </section><!-- #post-<?php the_ID(); ?> -->

@@ -17,8 +17,6 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 
-			<div class="container">
-
 			<?php
 			if ( have_posts() ) :
 
@@ -45,8 +43,6 @@ get_header(); ?>
 
 			endif; ?>
 
-		</div><!-- .container -->
-
 		<?php
 		$args = array(
 			'post_type' 		=> array( 'page' ),
@@ -62,7 +58,7 @@ get_header(); ?>
 			<?php while ( $panels->have_posts() ) :
 				$panels->the_post(); ?>
 
-				<?php if( 'portfolio' === $post->post_name ) : ?>
+				<?php if( 'portfolio' === $post->post_name || 'experience' === $post->post_name  || 'expertise' === $post->post_name ) : ?>
 
 					<?php get_template_part( 'template-parts/content', $post->post_name ); ?>
 

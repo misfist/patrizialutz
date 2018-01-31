@@ -1,66 +1,53 @@
 .main-navigation {
 	clear: both;
-	display: block;
-	float: left;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
 	width: 100%;
+	background-color: $brand-primary;
+
+	font-family: $font__header;
+	text-transform: uppercase;
+	font-size: 1.2rem;
+
+	a,
+	a:visited,
+	a:hover,
+	a:focus {
+		color: $white;
+	}
+
+	&.sticky {
+		-webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+		-moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+		box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+	}
 
 	ul {
-		display: none;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
 		list-style: none;
 		margin: 0;
 		padding-left: 0;
 
-		ul {
-			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-			float: left;
-			position: absolute;
-			top: 100%;
-			left: -999em;
-			z-index: 99999;
-
-			ul {
-				left: -999em;
-				top: 0;
-			}
-
-			li {
-				&:hover > ul,
-				&.focus > ul {
-					left: 100%;
-				}
-			}
-
-			a {
-				width: 200px;
-			}
-
-			:hover > a,
-			.focus > a {
-			}
-
-			a:hover,
-			a.focus {
-			}
+		li {
+			padding-left: 1rem;
+			padding-right: 1rem;
 		}
 
-		li:hover > ul,
-		li.focus > ul {
-			left: auto;
+		@include media-breakpoint-up(sm) {
+			justify-content: space-between;
 		}
-	}
 
-	li {
-		float: left;
-		position: relative;
-
-		&:hover > a,
-		&.focus > a {
-		}
 	}
 
 	a {
 		display: block;
 		text-decoration: none;
+
+		&.active {
+			font-weight: bold;
+		}
 	}
 
 	.current_page_item > a,
@@ -74,15 +61,6 @@
 .menu-toggle,
 .main-navigation.toggled ul {
 	display: block;
-}
-
-@media screen and (min-width: 37.5em) {
-	.menu-toggle {
-		display: none;
-	}
-	.main-navigation ul {
-		display: block;
-	}
 }
 
 .comment-navigation,
@@ -103,5 +81,34 @@
 		float: right;
 		text-align: right;
 		width: 50%;
+	}
+}
+
+.social-menu {
+	ul {
+		margin: 0;
+		padding-left: 0;
+		list-style: none;
+		display: flex;
+		justify-content: center;
+
+		.icon::before {
+			font-family: "Font Awesome 5 Brands";
+			font-size: 2rem;
+		}
+		.github .icon::before {
+			content: "\f09b";
+		}
+		.linkedin .icon::before {
+			content: "\f08c";
+		}
+		.upwork .icon::before {
+			content: "\f19a";
+		}
+
+		li {
+			padding-right: .5rem;
+			padding-left: .5rem;
+		}
 	}
 }

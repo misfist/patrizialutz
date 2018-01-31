@@ -16,6 +16,12 @@
 
 			<?php the_title( '<h2 class="entry-title">', '</h2>' ); ?>
 
+			<hr>
+
+			<?php if('contact' === $post->post_name) : ?>
+				<?php patrizialutz_custom_menu();?>
+			<?php endif; ?>
+
 		</header><!-- .entry-header -->
 
 		<div class="entry-content">

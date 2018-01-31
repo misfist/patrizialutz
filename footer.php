@@ -15,6 +15,8 @@
 
 	<footer id="colophon" class="site-footer">
 
+		<button type="button" name="button" class="scroll-up js-scroll-to-top"><span class="icon fas fa-arrow-up"></span><span class="screen-reader-text"><?php esc_html_e( 'Scroll to Top', 'patrizialutz' ) ?></span></button>
+
 		<div class="container">
 
 			<div class="site-info">

@@ -23,3 +23,57 @@ dt {
 dd {
 	margin: 0 1.5em 1.5em;
 }
+
+.skills-list {
+
+	h4 {
+		margin-top: 2rem;
+	}
+
+	ul {
+		margin: 0;
+		padding-left: 0;
+		list-style: none;
+
+		li {
+			li {
+				display: flex;
+				align-items: center;
+				border-bottom: 1px solid $primary-color-light;
+				padding-top: .125rem;
+				padding-bottom: .125rem;
+
+				.skill {
+					flex-basis: 60%;
+				}
+
+				.rating {
+					flex-basis: 40%;
+					display: flex;
+					align-items: center;
+					justify-content: space-around;
+				}
+
+				@include media-breakpoint-up (sm) {}
+			}
+		}
+	}
+
+	@include media-breakpoint-up (md) {
+		.column-1,
+		.column-2 {
+			flex-basis: calc(50% - 4rem);
+		}
+
+		.column-1 {
+			margin-right: 2rem;
+		}
+
+		.column-2 {
+			margin-left: 2rem;
+		}
+
+	}
+
+
+}

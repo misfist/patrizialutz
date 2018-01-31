@@ -4,11 +4,24 @@
 	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/background.jpg', sizingMethod='scale');
 	margin-bottom: 0;
 	padding: 0;
-	background: no-repeat center right fixed $url_1;
-	height: 800px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	border-radius: 0;
+
+	height: 400px;
+
+	@include media-breakpoint-up(md) {
+		height: 600px;
+	}
+	@include media-breakpoint-up(lg) {
+		height: 600px;
+	}
+	@include media-breakpoint-up(xl) {
+		height: 800px;
+	}
 
 	.overlay {
-		height: 800px;
 		position: absolute;
 		top: 0;
 		bottom: 0;
@@ -18,6 +31,19 @@
 		filter: alpha(opacity=75);
 		z-index: 2;
 		background-color: $primary-color;
+
+		height: 400px;
+
+		@include media-breakpoint-up(md) {
+			height: 600px;
+		}
+		@include media-breakpoint-up(lg) {
+			height: 600px;
+		}
+		@include media-breakpoint-up(xl) {
+			height: 800px;
+		}
+
 	}
 	.container {
 		position: relative;

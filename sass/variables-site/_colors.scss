@@ -4,9 +4,9 @@ $blue:    #0b4f6c;
 $indigo:  #6610f2;
 $purple:  #6f42c1;
 $pink:    #e83e8c;
-$red:     #dc3545;
+$red:     #0b4f6c;
 $orange:  #fd7e14;
-$yellow:  #ffc107;
+$yellow:  #AB7E0A;
 $cyan:    #17a2b8;
 $green:   #009688;
 
@@ -57,7 +57,7 @@ $headings-color: $brand-primary;
 $link-color:            $brand-primary;
 $link-decoration:       none;
 $link-hover-decoration: none;
-$color__link: $green;
+$color__link: $brand-primary;
 $color__link-visited: $brand-primary;
 $color__link-hover: darken($brand-primary, 10%);
 
@@ -69,11 +69,10 @@ $color__background-body: $gray-100;
 //urls
 $url_0: url(images/sm_icon_sprite.png);
 $url_1: url('../images/background.jpg');
-$url_2: url('https://s3.amazonaws.com/onepagelove/one-page-love-award.png');
 
 $color__background-screen: #f1f1f1;
 $color__background-hr: #ccc;
-$color__background-button: #e6e6e6;
+$color__background-button: $brand-primary;
 $color__background-pre: #eee;
 $color__background-ins: #fff9c0;
 
@@ -83,8 +82,8 @@ $color__text-input-focus: #111;
 
 $color__text-main: #404040;
 
-$color__border-button: #ccc #ccc #bbb;
-$color__border-button-hover: #ccc #bbb #aaa;
-$color__border-button-focus: #aaa #bbb #bbb;
+$color__border-button: $brand-primary;
+$color__border-button-hover: darken($brand-primary, 10%);
+$color__border-button-focus: darken($brand-primary, 10%);
 $color__border-input: #ccc;
 $color__border-abbr: #666;
