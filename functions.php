@@ -18,6 +18,11 @@ require get_template_directory() . '/inc/setup.php';
 require get_template_directory() . '/inc/enqueue.php';
 
 /**
+ * Custom Fields.
+ */
+require get_template_directory() . '/inc/custom-fields.php';
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
