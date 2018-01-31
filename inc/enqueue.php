@@ -14,7 +14,7 @@
   wp_enqueue_style( 'font-awesome', 'https://use.fontawesome.com/releases/v5.0.6/css/all.css', array(), false, 'all' );
   wp_enqueue_style( 'web-fonts', 'https://fonts.googleapis.com/css?family=Lato:300,300i', array(), false, 'all' );
 
-	wp_enqueue_style( 'patrizialutz-style', get_template_directory_uri() . '/css/main.css', array(), $version, 'all');
+	wp_enqueue_style( 'patrizialutz-style', get_template_directory_uri() . '/css/main.min.css', array(), $version, 'all');
 
 	wp_enqueue_script( 'patrizialutz-scripts', get_template_directory_uri() . '/js/min/main.min.js', array ( 'jquery' ), $version, true);
 
