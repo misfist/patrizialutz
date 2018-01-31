@@ -3,3 +3,5 @@
 *.bak
 *.sql
 *.lock
+#The handlebars dependency defined in `package-lock.json` has a known moderate severity security vulnerability in version range < 4.0.0 and should be updated.
+package-lock.json
