@@ -65,9 +65,9 @@
 											<?php foreach( $skills as $skill ) : ?>
 
 											<li>
-												<div class="skill"><?php echo apply_filters( 'meta_content', $skill['skill'] ); ?></div>
-												<?php if( !empty( $skill['ratting'] ) ) : ?>
-													<div class="rating js-rating-<?php echo $skill['ratting']; ?>" data-rating="<?php echo $skill['ratting']; ?>"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+												<div class="skill"><?php echo $skill['skill']; ?></div>
+												<?php if( !empty( $skill['rating'] ) ) : ?>
+													<div class="rating js-rating-<?php echo $skill['rating']; ?>" data-rating="<?php echo $skill['rating']; ?>"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
 												<?php else : ?>
 													<div class="rating"></div>
 												<?php endif; ?>
@@ -100,9 +100,9 @@
 											<?php foreach( $skills as $skill ) : ?>
 
 											<li class="level-2">
-												<div class="skill"><?php esc_attr_e( $skill['skill'], 'patrizialutz' ); ?></div>
-												<?php if( !empty( $skill['ratting'] ) ) : ?>
-													<div class="rating js-rating-<?php echo $skill['ratting']; ?>" data-rating="<?php echo $skill['ratting']; ?>"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+												<div class="skill"><?php echo $skill['skill']; ?></div>
+												<?php if( !empty( $skill['rating'] ) ) : ?>
+													<div class="rating js-rating-<?php echo $skill['rating']; ?>" data-rating="<?php echo $skill['rating']; ?>"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
 												<?php else : ?>
 													<div class="rating"></div>
 												<?php endif; ?>
