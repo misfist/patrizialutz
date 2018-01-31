@@ -65,7 +65,7 @@
         var dots = $(this).find('.dot');
         var i = rating;
 
-        for( var i = 1; i < rating; i++) {
+        for( var i = 0; i < rating; i++) {
           $(dots[i]).addClass('filled');
         }
 
