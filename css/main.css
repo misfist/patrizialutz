@@ -4795,7 +4795,9 @@ a {
 ## Menus
 --------------------------------------------------------------*/
 .main-navigation {
-  clear: both;
+  content: "";
+  display: table;
+  table-layout: fixed;
   padding-top: 1rem;
   padding-bottom: 1rem;
   width: 100%;
