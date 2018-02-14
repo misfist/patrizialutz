@@ -75,6 +75,17 @@
 
   ratingsFill(ratings);
 
+	/**
+	 * Set MinHeight
+	 */
+	var jumbotronEl = $( '.jumbotron' );
+	var overlayEl = $( '.overlay' );
+	var jumboContainer = $( '.jumbotron .container' );
+	var jumboContainerHeight = jumboContainer.outerHeight();
+
+	jumbotronEl.css( 'min-height', jumboContainerHeight );
+	overlayEl.css( 'min-height', jumboContainerHeight );
+
 
 
 })( jQuery );
