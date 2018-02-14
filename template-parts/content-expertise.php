@@ -66,11 +66,6 @@
 
 											<li>
 												<div class="skill"><?php echo $skill['skill']; ?></div>
-												<?php if( !empty( $skill['rating'] ) ) : ?>
-													<div class="rating js-rating-<?php echo $skill['rating']; ?>" data-rating="<?php echo $skill['rating']; ?>"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-												<?php else : ?>
-													<div class="rating"></div>
-												<?php endif; ?>
 											</li>
 
 											<?php endforeach; ?>
@@ -101,11 +96,6 @@
 
 											<li class="level-2">
 												<div class="skill"><?php echo $skill['skill']; ?></div>
-												<?php if( !empty( $skill['rating'] ) ) : ?>
-													<div class="rating js-rating-<?php echo $skill['rating']; ?>" data-rating="<?php echo $skill['rating']; ?>"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-												<?php else : ?>
-													<div class="rating"></div>
-												<?php endif; ?>
 											</li>
 
 											<?php endforeach; ?>
