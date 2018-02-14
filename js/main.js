@@ -82,9 +82,12 @@
 	var overlayEl = $( '.overlay' );
 	var jumboContainer = $( '.jumbotron .container' );
 	var jumboContainerHeight = jumboContainer.outerHeight();
+	var padding = 16;
 
-	jumbotronEl.css( 'min-height', jumboContainerHeight );
-	overlayEl.css( 'min-height', jumboContainerHeight );
+	console.log( jumboContainer.offset().top + jumboContainerHeight );
+
+	jumbotronEl.css( 'min-height', (jumboContainer.offset().top + jumboContainerHeight + padding) + 'px' );
+	overlayEl.css( 'min-height', (jumboContainer.offset().top + jumboContainerHeight + padding) + 'px' );
 
 
 
