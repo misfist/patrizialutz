@@ -4891,7 +4891,7 @@ a {
   background-position: center center;
   background-attachment: fixed;
   border-radius: 0;
-  height: 400px; }
+  height: 320px; }
   .jumbotron .overlay {
     position: absolute;
     top: 0;
@@ -4902,12 +4902,13 @@ a {
     filter: alpha(opacity=75);
     z-index: 2;
     background-color: #0b4f6c;
-    height: 400px; }
+    height: 320px; }
   .jumbotron .container {
     position: relative;
-    top: 28%;
+    top: 8%;
     z-index: 4;
-    text-align: center; }
+    text-align: center;
+    clear: both; }
     .jumbotron .container > * {
       text-align: center;
       color: #fff; }
@@ -6828,6 +6829,9 @@ object {
   .jumbotron .overlay {
     height: 600px; }
 
+  .jumbotron .container {
+    top: 18%; }
+
   .avatar img {
     height: 11rem;
     width: 11rem; } }
@@ -7492,12 +7496,6 @@ object {
   html {
     font-size: 1rem; }
 
-  .jumbotron {
-    height: 600px; }
-
-  .jumbotron .overlay {
-    height: 600px; }
-
   .avatar img {
     height: 12rem;
     width: 12rem; } }
@@ -8160,7 +8158,10 @@ object {
     height: 800px; }
 
   .jumbotron .overlay {
-    height: 800px; } }
+    height: 800px; }
+
+  .jumbotron .container {
+    top: 28%; } }
     @media (max-width: 575px) {
 
   .table-responsive-sm {

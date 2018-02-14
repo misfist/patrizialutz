@@ -9,12 +9,9 @@
 	background-attachment: fixed;
 	border-radius: 0;
 
-	height: 400px;
+	height: 320px;
 
 	@include media-breakpoint-up(md) {
-		height: 600px;
-	}
-	@include media-breakpoint-up(lg) {
 		height: 600px;
 	}
 	@include media-breakpoint-up(xl) {
@@ -32,12 +29,9 @@
 		z-index: 2;
 		background-color: $primary-color;
 
-		height: 400px;
+		height: 320px;
 
 		@include media-breakpoint-up(md) {
-			height: 600px;
-		}
-		@include media-breakpoint-up(lg) {
 			height: 600px;
 		}
 		@include media-breakpoint-up(xl) {
@@ -47,9 +41,17 @@
 	}
 	.container {
 		position: relative;
-		top: 28%;
+		top: 8%;
 		z-index: 4;
 		text-align: center;
+		@include clearfix-after;
+
+		@include media-breakpoint-up(md) {
+			top: 18%;
+		}
+		@include media-breakpoint-up(xl) {
+			top: 28%;
+		}
 		> * {
 			text-align: center;
 			color: $white;
