@@ -80,7 +80,6 @@ gulp.task('scripts', function(){
       .pipe(sourcemaps.write())
       .pipe( rename( { suffix: '.min' } ) )
       .pipe( gulp.dest( paths.scripts + '/min/' ) )
-      .pipe( notify( { message: 'Script task complete' } ) );
 });
 
 gulp.task('images', function(){
@@ -91,7 +90,6 @@ gulp.task('images', function(){
         interlaced: true
     }))
     .pipe(gulp.dest(paths.imagesOutput))
-    .pipe( notify( { message: 'Images task complete' } ) );
 });
 
 gulp.task( 'watch', function() {
