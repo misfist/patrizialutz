@@ -37,22 +37,10 @@ dd {
 
 		li {
 			li {
-				display: flex;
 				align-items: center;
 				border-bottom: 1px solid $primary-color-light;
 				padding-top: .125rem;
 				padding-bottom: .125rem;
-
-				.skill {
-					flex-basis: 60%;
-				}
-
-				.rating {
-					flex-basis: 40%;
-					display: flex;
-					align-items: center;
-					justify-content: space-around;
-				}
 
 				@include media-breakpoint-up (sm) {}
 			}

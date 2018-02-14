@@ -4543,6 +4543,10 @@ strong,
 b {
   margin-bottom: 1.25rem; }
 
+.job-title {
+  color: #404040;
+  font-weight: 700; }
+
 html {
   font-size: .8rem; }
 
@@ -4638,29 +4642,12 @@ dd {
   padding-left: 0;
   list-style: none; }
   .skills-list ul li li {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
     border-bottom: 1px solid #B2DFDB;
     padding-top: .125rem;
     padding-bottom: .125rem; }
-    .skills-list ul li li .skill {
-      -ms-flex-preferred-size: 60%;
-          flex-basis: 60%; }
-    .skills-list ul li li .rating {
-      -ms-flex-preferred-size: 40%;
-          flex-basis: 40%;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-align: center;
-          -ms-flex-align: center;
-              align-items: center;
-      -ms-flex-pack: distribute;
-          justify-content: space-around; }
 
 img {
   height: auto;
@@ -5291,8 +5278,8 @@ object {
     -webkit-backface-visibility: hidden;
             backface-visibility: hidden; }
   .hovereffect:hover img {
-    opacity: 0.4;
-    filter: alpha(opacity=40);
+    opacity: .2;
+    filter: alpha(opacity=20);
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0); }
   .hovereffect:hover h3:after {
